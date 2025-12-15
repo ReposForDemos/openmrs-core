@@ -1,0 +1,17 @@
+name: "🔄Syncing a fork branch with the GitHub CLI"
+
+on:
+  workflow_dispatch: # Allows manual triggering
+  schedule:
+    - cron: "0 22 * * 5" # Every Friday at 10pm
+
+jobs:
+  sync-with-gh-cli:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Synchronize master Branch
+        run: gh repo sync ReposForDemos/openmrs-core -b master
+        env:
+          GH_TOKEN: ${{ secrets.TOKEN_4_ACTIONS }}
