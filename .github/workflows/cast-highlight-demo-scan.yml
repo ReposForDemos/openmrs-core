@@ -31,7 +31,7 @@ jobs:
 
       - name: "⛏️Scan repository source code with CAST Highlight Code Reader" 
         run: |
-          docker run --rm -v $(pwd):/s -v /tmp:/w  casthighlight/cli:5.11.7 \
+          docker run --rm -v $(pwd):/s -v /tmp:/w  casthighlight/cli \
                                                    --sourceDir /s \
                                                    --workingDir /w \
                                                    --tokenAuth ${{ secrets.CAST_HIGHLIGHT_DEMO_API_TOKEN }} \
